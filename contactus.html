@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Spence Heavy Equipment</title>
+    <link href="css/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <h1>Spence Heavy Equipment</h1>
+        <nav>
+            <ul>
+                <li><a href="homePage.html">Home</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p><strong>Phone:</strong> +1 (876) 543-0747</p>
+        <p><strong>Email:</strong> spenceheavyequipmentcoltd@gmail.com</p>
+    </div>
+
+    <!-- Contact Us Form -->
+    <div class="contact-us-container">
+        <h2>Contact Us</h2>
+        <form class="contact-form" onsubmit="sendEmail(event)">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 Spence Heavy Equipment Company Limited
+    </footer>
+
+    <script>
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Construct the mailto link
+            const mailtoLink = `mailto:tiadinald@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+                `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+            )}`;
+
+            // Trigger the email client
+            window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
+
